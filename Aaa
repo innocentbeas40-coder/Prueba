@@ -1,0 +1,242 @@
+<?php
+
+class Planta
+{
+    protected string $Nombre;
+    protected float $AlturaTallo;
+    protected bool $TieneHojas;
+    protected string $ClimaIdeal;
+
+    public function __construct(
+        string $Nombre,
+        float $AlturaTallo,
+        bool $TieneHojas,
+        string $ClimaIdeal
+    ) {
+        $this->Nombre = $Nombre;
+        $this->AlturaTallo = $AlturaTallo;
+        $this->TieneHojas = $TieneHojas;
+        $this->ClimaIdeal = $ClimaIdeal;
+    }
+
+    public function MostrarInformacion()
+    {
+        echo "Nombre: " . $this->Nombre . "<br>";
+        echo "Altura del tallo: " . $this->AlturaTallo . " metros<br>";
+        echo "Tiene hojas: " . ($this->TieneHojas ? "Sí" : "No") . "<br>";
+        echo "Clima ideal: " . $this->ClimaIdeal . "<br>";
+    }
+}
+
+
+class Arbol extends Planta
+{
+    private string $Variedad;
+    private string $TipoTronco;
+    private float $RadioTronco;
+    private string $Color;
+    private string $TipoHojas;
+
+    public function __construct(
+        string $Nombre,
+        float $AlturaTallo,
+        bool $TieneHojas,
+        string $ClimaIdeal,
+        string $Variedad,
+        string $TipoTronco,
+        float $RadioTronco,
+        string $Color,
+        string $TipoHojas
+    ) {
+        parent::__construct(
+            $Nombre,
+            $AlturaTallo,
+            $TieneHojas,
+            $ClimaIdeal
+        );
+
+        $this->Variedad = $Variedad;
+        $this->TipoTronco = $TipoTronco;
+        $this->RadioTronco = $RadioTronco;
+        $this->Color = $Color;
+        $this->TipoHojas = $TipoHojas;
+    }
+
+    public function Saludar()
+    {
+        echo "Hola, soy un árbol<br>";
+    }
+
+    public function MostrarInformacion()
+    {
+        parent::MostrarInformacion();
+
+        echo "Variedad: " . $this->Variedad . "<br>";
+        echo "Tipo de tronco: " . $this->TipoTronco . "<br>";
+        echo "Radio del tronco: " . $this->RadioTronco . " metros<br>";
+        echo "Color: " . $this->Color . "<br>";
+        echo "Tipo de hojas: " . $this->TipoHojas . "<br>";
+    }
+}
+
+
+class Flor extends Planta
+{
+    private string $ColorPetalos;
+    private int $CantidadPromedioPetalos;
+    private string $ColorPistilo;
+    private string $VariedadFlor;
+    private string $EstacionFlorece;
+
+    public function __construct(
+        string $Nombre,
+        float $AlturaTallo,
+        bool $TieneHojas,
+        string $ClimaIdeal,
+        string $ColorPetalos,
+        int $CantidadPromedioPetalos,
+        string $ColorPistilo,
+        string $VariedadFlor,
+        string $EstacionFlorece
+    ) {
+        parent::__construct(
+            $Nombre,
+            $AlturaTallo,
+            $TieneHojas,
+            $ClimaIdeal
+        );
+
+        $this->ColorPetalos = $ColorPetalos;
+        $this->CantidadPromedioPetalos = $CantidadPromedioPetalos;
+        $this->ColorPistilo = $ColorPistilo;
+        $this->VariedadFlor = $VariedadFlor;
+        $this->EstacionFlorece = $EstacionFlorece;
+    }
+
+    public function Saludar()
+    {
+        echo "Hola, soy una flor<br>";
+    }
+
+    public function MostrarInformacion()
+    {
+        parent::MostrarInformacion();
+
+        echo "Color de pétalos: " . $this->ColorPetalos . "<br>";
+        echo "Cantidad promedio de pétalos: " . $this->CantidadPromedioPetalos . "<br>";
+        echo "Color del pistilo: " . $this->ColorPistilo . "<br>";
+        echo "Variedad de la flor: " . $this->VariedadFlor . "<br>";
+        echo "Estación en la que florece: " . $this->EstacionFlorece . "<br>";
+    }
+}
+
+
+class Arbusto extends Planta
+{
+    private float $AnchoArbusto;
+    private bool $EsDomestico;
+    private string $VariedadArbusto;
+    private string $ColorHojas;
+    private bool $SePoda;
+
+    public function __construct(
+        string $Nombre,
+        float $AlturaTallo,
+        bool $TieneHojas,
+        string $ClimaIdeal,
+        float $AnchoArbusto,
+        bool $EsDomestico,
+        string $VariedadArbusto,
+        string $ColorHojas,
+        bool $SePoda
+    ) {
+        parent::__construct(
+            $Nombre,
+            $AlturaTallo,
+            $TieneHojas,
+            $ClimaIdeal
+        );
+
+        $this->AnchoArbusto = $AnchoArbusto;
+        $this->EsDomestico = $EsDomestico;
+        $this->VariedadArbusto = $VariedadArbusto;
+        $this->ColorHojas = $ColorHojas;
+        $this->SePoda = $SePoda;
+    }
+
+    public function Saludar()
+    {
+        echo "Hola, soy un arbusto<br>";
+    }
+
+    public function MostrarInformacion()
+    {
+        parent::MostrarInformacion();
+
+        echo "Ancho del arbusto: " . $this->AnchoArbusto . " metros<br>";
+        echo "Es doméstico: " . ($this->EsDomestico ? "Sí" : "No") . "<br>";
+        echo "Variedad de arbusto: " . $this->VariedadArbusto . "<br>";
+        echo "Color de hojas: " . $this->ColorHojas . "<br>";
+        echo "¿Se poda?: " . ($this->SePoda ? "Sí" : "No") . "<br>";
+    }
+}
+
+
+/* CREACIÓN DE LOS OBJETOS */
+
+$Arbol = new Arbol(
+    "Roble",
+    8.5,
+    true,
+    "Templado",
+    "Roble común",
+    "Leñoso",
+    0.45,
+    "Marrón",
+    "Caducas"
+);
+
+$Flor = new Flor(
+    "Rosa",
+    0.6,
+    true,
+    "Templado",
+    "Rojo",
+    32,
+    "Amarillo",
+    "Rosa híbrida",
+    "Primavera"
+);
+
+$Arbusto = new Arbusto(
+    "Hortensia",
+    1.2,
+    true,
+    "Húmedo",
+    1.5,
+    true,
+    "Macrophylla",
+    "Verde",
+    true
+);
+
+
+/* LLAMAR LOS MÉTODOS */
+
+echo "<h1>PLANTAS</h1>";
+
+echo "<h2>ÁRBOL</h2>";
+$Arbol->Saludar();
+$Arbol->MostrarInformacion();
+
+echo "<hr>";
+
+echo "<h2>FLOR</h2>";
+$Flor->Saludar();
+$Flor->MostrarInformacion();
+
+echo "<hr>";
+
+echo "<h2>ARBUSTO</h2>";
+$Arbusto->Saludar();
+$Arbusto->MostrarInformacion();
